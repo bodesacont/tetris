@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Tetris Game</title>
+  <style>
+    #tetris-canvas { border: 1px solid #333; }
+    #code-display { background: #f4f4f4; padding: 1em; max-height: 300px; overflow-y: auto; }
+  </style>
+</head>
+<body>
+  <h1>Playable Tetris Game</h1>
+  <canvas id="tetris-canvas" width="300" height="600"></canvas>
+  
+  <h2>Game Code</h2>
+  <pre id="code-display"></pre>
+
+  <script src="tetris.js"></script>
+  <script>
+    // Dynamically load the code to display
+    fetch('tetris.js')
+      .then(response => response.text())
+      .then(code => {
+        document.getElementById('code-display').textContent = code;
+      });
+  </script>
+</body>
+</html>
